@@ -1,0 +1,26 @@
+{
+  "name": "sls-api",
+  "version": "1.0.0",
+  "main": "handler.js",
+  "scripts": {
+    "test": "tableName=users jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@shelf/jest-dynamodb": "^1.8.1",
+    "aws-sdk": "^2.941.0",
+    "dotenv": "^10.0.0",
+    "jest": "^27.0.6",
+    "jest-dynalite": "^3.3.1",
+    "serverless-dynamodb-local": "^0.2.40",
+    "serverless-offline": "^7.0.0",
+    "serverless-webpack": "^5.5.1",
+    "webpack": "^5.43.0"
+  },
+  "dependencies": {
+    "uuid": "^3.3.2"
+  }
+}
