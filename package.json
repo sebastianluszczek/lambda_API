@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "handler.js",
   "scripts": {
-    "test": "tableName=users jest"
+    "test": "tableName=users jest",
+    "build": "webpack --mode=production",
+    "build:dev": "webpack --mode=none"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +20,8 @@
     "serverless-dynamodb-local": "^0.2.40",
     "serverless-offline": "^7.0.0",
     "serverless-webpack": "^5.5.1",
-    "webpack": "^5.43.0"
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2"
   },
   "dependencies": {
     "uuid": "^3.3.2"

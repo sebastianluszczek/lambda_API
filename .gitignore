@@ -3,5 +3,11 @@ node_modules
 .webpack
 .vscode
 .dynamodb
+.terraform
+dist
 
 .env
+.terraform.lock.hcl
+# .tfstate files
+*.tfstate
+*.tfstate.*
