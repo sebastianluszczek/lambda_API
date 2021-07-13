@@ -46,7 +46,7 @@ jobs:
 
       - name: Build lambdas
         run: |
-          npm i
+          npm ci
           npm run build:dev
 
       - uses: hashicorp/setup-terraform@v1
