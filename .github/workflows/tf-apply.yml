@@ -26,13 +26,14 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - run: |
+      - name: Run test
+        run: |
           npm ci
           npm run test
 
-  terrafor-plan:
+  terrafor:
     runs-on: ubuntu-latest
-    name: Create terraform plan
+    name: Apply terraform infrastructure
 
     steps:
       - name: Checkout
@@ -43,7 +44,8 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - run: |
+      - name: Build lambdas
+        run: |
           npm i
           npm run build
 
