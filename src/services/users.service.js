@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk');
 const { v4: uuidv4 } = require('uuid');
 
-const TableName = process.env.tableName;
+const TableName = process.env.tableName || 'users';
 
 let options = {};
 if (process.env.IS_OFFLINE) {
