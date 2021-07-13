@@ -20,6 +20,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+
       - name: Setup AWS credentials
         run: |
           mkdir -p .aws
@@ -28,29 +32,13 @@ jobs:
           echo "aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> .aws/credentials
 
       - name: Terraform Init
-        with:
-          tf_actions_version: ${{ env.TF_VERSION }}
-          tf_actions_subcommand: init
-        env:
-          AWS_SHARED_CREDENTIALS_FILE: .aws/credentials
+        run: terraform init
 
-      # - name: Terraform Validate
-      #   uses: rewindio/terraform-github-actions@master
-      #   with:
-      #     tf_actions_version: ${{ env.TF_VERSION }}
-      #     tf_actions_subcommand: validate
-      #   env:
-      #     TF_WORKSPACE: ${{ env.WORKSPACE }}
-      #     AWS_SHARED_CREDENTIALS_FILE: .aws/credentials
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Terraform Validate
+        run: terraform validate
 
       - name: Terraform Plan
-        id: terraform-plan
-        with:
-          tf_actions_version: ${{ env.TF_VERSION }}
-          tf_actions_subcommand: plan
-        env:
-          AWS_SHARED_CREDENTIALS_FILE: .aws/credentials
+        run: terraform plan
 
       - name: Cleanup AWS Credentials
         run: |
