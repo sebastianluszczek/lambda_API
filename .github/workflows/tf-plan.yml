@@ -27,6 +27,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - run: |
+          npm i
           npm run build:dev
 
       - uses: hashicorp/setup-terraform@v1
