@@ -65,11 +65,11 @@ jobs:
         working-directory: terraform
 
       - name: Terraform Validate
-        run: terraform validate -backend-config=config/config.remote
+        run: terraform validate
         working-directory: terraform
 
       - name: Terraform Plan
-        run: terraform plan -backend-config=config/config.remote
+        run: terraform plan
         working-directory: terraform
 
       - name: Cleanup AWS Credentials

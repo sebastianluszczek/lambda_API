@@ -58,7 +58,7 @@ jobs:
           echo "aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> .aws/credentials
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform init -backend-config=config/config.remote
         working-directory: terraform
 
       - name: Terraform Validate
