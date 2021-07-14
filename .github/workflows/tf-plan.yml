@@ -61,15 +61,15 @@ jobs:
           echo "aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> .aws/credentials
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform init -backend-config=config/config.remote
         working-directory: terraform
 
       - name: Terraform Validate
-        run: terraform validate
+        run: terraform validate -backend-config=config/config.remote
         working-directory: terraform
 
       - name: Terraform Plan
-        run: terraform plan
+        run: terraform plan -backend-config=config/config.remote
         working-directory: terraform
 
       - name: Cleanup AWS Credentials

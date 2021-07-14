@@ -1,0 +1,3 @@
+bucket  = "amazeddev-tfstate"
+key     = "lambda_api.tfstate"
+region  = "eu-central-1"
